@@ -1,0 +1,50 @@
+package phase1.project.utility;
+
+import java.util.Scanner;
+
+import phase1.project.com.App;
+
+public class SubMenu {
+	
+	public static void subMenuOptions() {
+		System.out.println("Welcome to SubMenu");
+		Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Sub Menu:");
+            System.out.println("1. Create a new file");
+            System.out.println("2. Delete a file");
+            System.out.println("3. Search for files");
+            System.out.println("4. Exit to Main Menu");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); 
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the file name to create: ");
+                    String createFileName = scanner.nextLine();
+                    App.createFile(createFileName);
+                    break;
+                case 2:
+                    System.out.print("Enter the file name to delete: ");
+                    String deleteFileName = scanner.nextLine();
+                    App.deleteFile(deleteFileName);
+                    break;
+                case 3:
+                    System.out.print("Enter the keyword to search for files: ");
+                    String searchKeyword = scanner.nextLine();
+                    App.searchFiles(searchKeyword);
+                    break;
+                case 4:
+                    System.out.println("Returning to Main Menu.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        } while (choice != 4);
+    }
+
+	}
+
